@@ -42,16 +42,13 @@ const cssElements = [
       Colors are displayed combining RED, GREEN, and BLUE light.
 
       With CSS, colors can be specified in different ways:
-
 By color names
 As RGB values
 As hexadecimal values
 As HSL values (CSS3)
 As HWB values (CSS4)
 With the currentcolor keyword
-
 RGB color values are supported in all browsers.
-
 An RGB color value is specified with: rgb( RED , GREEN , BLUE ).
 
 Each parameter defines the intensity of the color as an integer between 0 and 255.
@@ -1341,7 +1338,7 @@ Depends on the user agent. Typically equivalent to 5px in desktop browsers (incl
     `,
   },
   {
-    id: 48,
+    id: 408,
     title: "border-radius",
     description: `
     The border-radius CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
