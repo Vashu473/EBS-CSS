@@ -2080,7 +2080,7 @@ const View = () => {
       <Container className={classes.container}>
         <Grid container spacing={2}>
           {cssElements.map((element) => {
-            if (element.title.toLowerCase().includes(input)) {
+            if (element.title.toLowerCase().includes(input.toLowerCase())) {
               return (
                 <Grid item xs={12} sm={4} md={3} key={element.id}>
                   <Card className={classes.card}>
