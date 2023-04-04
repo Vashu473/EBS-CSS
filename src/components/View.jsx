@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import {
   AppBar,
@@ -8,7 +8,12 @@ import {
   Grid,
   Card,
   CardContent,
+  Input,
+  InputLabel,
+  FormControl,
+  InputAdornment,
 } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -2048,14 +2053,9 @@ visibility: collapse may change the layout of a table if the table has nested ta
       "The gap property is a shorthand property that sets the row-gap and column-gap properties. Itsets the spacing between grid items in a grid container. It can take on values such as length or percentage.",
   },
 ];
-const newCss = cssElements.map((data, index) => {
-  return {
-    id: index,
-    ...data,
-  };
-});
 
 const View = () => {
+  const [input, setInput] = useState("");
   const classes = useStyles();
   return (
     <div className={classes.root} style={{ marginTop: "80px" }}>
@@ -2064,32 +2064,53 @@ const View = () => {
           <Typography variant="h6" className={classes.title}>
             CSS Reference
           </Typography>
+          <FormControl variant="standard">
+            <InputLabel htmlFor="input-with-icon-adornment">
+              Element/ Tags/ Properties/ Methods
+            </InputLabel>
+            <Input
+              onChange={(e) => setInput(e.target.value)}
+              id="input-with-icon-adornment"
+              startAdornment={
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              }
+            />
+          </FormControl>
         </Toolbar>
       </AppBar>
       <Container className={classes.container}>
         <Grid container spacing={2}>
-          {newCss.map((element) => (
-            <Grid item xs={12} sm={4} md={3} key={element.id}>
-              <Card className={classes.card}>
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    {element.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    component="p"
-                    style={{
-                      height: "400px",
-                      maxHeight: "400px",
-                      overflow: "auto",
-                    }}
-                  >
-                    {element.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+          {cssElements.map((element) => {
+            if (
+              element.title.toLocaleLowerCase().includes(input) ||
+              element.title.toLocaleUpperCase().includes(input)
+            ) {
+              return (
+                <Grid item xs={12} sm={4} md={3} key={element.id}>
+                  <Card className={classes.card}>
+                    <CardContent>
+                      <Typography variant="h5" component="h2">
+                        {element.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        component="p"
+                        style={{
+                          height: "400px",
+                          maxHeight: "400px",
+                          overflow: "auto",
+                        }}
+                      >
+                        {element.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              );
+            }
+          })}
         </Grid>
       </Container>
     </div>
