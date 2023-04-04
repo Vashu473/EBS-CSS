@@ -29,7 +29,7 @@ const Footer = () => {
         <div>
           <div className="font-bold mb-6">Get Started</div>
           <p className="text-sm leading-7">
-            Just enroll on Earn By Skill (EBS-HTML) to start your career journey with
+            Just enroll on Earn By Skill (EBS-CSS) to start your career journey with
             us.
           </p>
         </div>
@@ -37,16 +37,16 @@ const Footer = () => {
           <div className="font-bold mb-6">Services</div>
           <div className="flex flex-col gap-4">
             <NavLink to="/" className="text-sm hover:underline">
-              HTML
+              CSS
             </NavLink>
             <NavLink to="/" className="text-sm hover:underline">
-            HTML
+            CSS
             </NavLink>
             <NavLink to="/" className="text-sm hover:underline">
-            HTML
+            CSS
             </NavLink>
             <NavLink to="/" className="text-sm hover:underline">
-            HTML
+            CSS
             </NavLink>
           </div>
         </div>
